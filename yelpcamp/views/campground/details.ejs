@@ -1,0 +1,49 @@
+
+<%layout('layouts/boilerplate')%>
+
+<h1><b>Welcome to <%=findproducts.title%></b></h1>
+<div class="card ">
+    <img class="card-img-top" src="<%=findproducts.image%>" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">city:<b><%=findproducts.title%></b></h5>
+      <p class="card-text">description is about the place: <b><%=findproducts.description%></b></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">price is:<b><%=findproducts.price%></b></li>
+      <li class="list-group-item">location is:<b><%=findproducts.location%></b></li>
+      <li class="list-group-item"><b>submitted by <%=findproducts.author.username%></b></li>
+    </ul>
+    <%if(findproducts.author.username==currentUser.username){%>
+
+    <div class="card-body">
+      <a href="/home" class="btn btn-primary">back to home</a>
+      <a href="/updatecamp/<%=findproducts._id%>" class="btn btn-warning">update details</a>
+      <a href="/deletecamp/<%=findproducts._id%>" class="btn btn-danger">delete details</a>
+    </div>
+  <%}%>
+  </div>
+  <div>
+    
+      <% for(let review of findproducts.reviews) { %>
+       
+        <div class="card m-2 p-2">
+          <h5 class="card-header">Review Submitted by <%=review.author%></h5>
+          <div class="card-body">
+            <h5 class="card-title"><b><%=review.rating%></b></h5>
+            <p class="card-text"><b><%=review.body%></b></p>
+            <%if(findproducts.author.username==currentUser.username||review.author==currentUser.username){%>
+            <form action="/deletereview/<%=findproducts._id%>/review/<%=review._id%>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+            <%}%>
+          </div>
+        </div>
+      <%}%>
+    
+  </div>
+  <form action='/addreviews' method="POST">
+    <input type="hidden" name="text" value="<%=findproducts._id%>" >
+    <button name='button' >Add a Review</button>
+  </form>
+  
+    

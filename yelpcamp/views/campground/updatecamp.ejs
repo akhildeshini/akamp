@@ -1,0 +1,73 @@
+
+
+
+
+<% layout('layouts/boilerplate')%>
+<h1><b>Welcome to creating a new form</b></h1>
+
+
+<form  action="/updatecamp/<%=findproducts._id%>?_method=PATCH" class="needs-validation" method="POST"  novalidate>
+   <div class="mb-3">
+     <label for="title" class="form-label"><b>Title</b></label>
+     <input type="text" class="form-control" name="title" id="title" value="<%=findproducts.title%>" required>
+     <div class="valid-feedback">
+       Looks good!
+     </div>
+   
+   </div>
+   <div class="mb-3">
+     <label for="price" class="form-label"><b>price</b></label>
+     <input type=number" class="form-control" id="price" name="price" value="<%=findproducts.price%>" required>
+     <div class="valid-feedback">
+        Looks good!
+      </div>
+   </div>
+   <div class="mb-3">
+       <label for="description" class="form-label"><b>description</b></label>
+       <textarea id="description" name="description" class="form-control"  required><%=findproducts.description%></textarea>
+       <div class="valid-feedback">
+        Looks good!
+      </div>
+     </div>
+     <div class="mb-3">
+       <label for="location" class="form-label"><b>location</b></label>
+       <input type="text" class="form-control" name="location" id="location" value="<%=findproducts.location%>" required>
+       <div class="valid-feedback">
+        Looks good!
+      </div>
+     </div>
+     <div class="mb-3">
+       <label for="image" class="form-label"><b>image</b></label>
+       <input type="text" class="form-control" name="image" id="image" value="<%=findproducts.image%>" required>
+       <div class="valid-feedback">
+        Looks good!
+      </div>
+     </div>
+   
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+
+   <a href="/home">back to home</a>

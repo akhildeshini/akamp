@@ -1,0 +1,25 @@
+<%layout('layouts/boilerplate')%>
+    <h1 class="text-center"> welcome to AKAMP</h1>
+
+    <%for(let f of findproducts){%>
+        <div class="container my-auto p-auto  ">
+            <div class="row ">
+                <div class="col-6 col-md-6">
+    <div class="card  my-3 p-3 " >
+        <img src="<%=f.image%>" class="card-img-top" alt="camp image">
+    </div>
+    </div>
+    <div class="col-md-6 col-6 m-auto">
+        <div class="card-body mt-3 ">
+          <h5 class="card-title"><span>City :<b><%=f.title%></b></span></h5>
+          <p class="card-text"><span>Description of that place:<b><%=f.description%></b></span></p>
+          <p class="card-text"><span>price is :<b><%=f.price%></b></span></p>
+          <a href="/details/<%=f._id%>" class="btn btn-primary">more details</a>
+        </div>
+    </div>
+    
+      </div>
+    </div>
+   <% }%>
+   
+    <a href="/newcampground">create a new form</a>

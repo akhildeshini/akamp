@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<title>Yelpcamp</title>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+</head>
+<body>
+  
+
+    <form action="/deletecampground/<%=findproducts._id%>?_method=DELETE" method="POST">
+<h1>DELETE your form</h1>
+<label for="title">Add new title</label>
+<input type="text" name="title" id="title" value="<%=findproducts.title%>" readonly>
+<label for="price">Add new price</label>
+<input type="text" name="price" id="price"  value="<%=findproducts.price%>" readonly>
+<label for="description">Add new description</label>
+<input type="text" name="description" id="description"  value="<%=findproducts.description%>"readonly>
+<label for="location">Add new location</label>
+<input type="text" name="location" id="location"  value="<%=findproducts.location%>"readonly>
+<button>Delete</button>
+    </form>
+    <a href="/home">back to home</a> 
+</body>
+</html>
